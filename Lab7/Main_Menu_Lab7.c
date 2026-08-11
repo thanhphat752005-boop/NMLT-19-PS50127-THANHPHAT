@@ -42,7 +42,7 @@ void xoaBoNhoDem() {
     int c;
     while ((c = getchar()) != '\n' && c != EOF);
 }
-void kiemTraDangNhap() { printf("\n[Chuc nang 2 dang phat trien]\n"); }
+
 void sapXepChuoi() { printf("\n[Chuc nang 3 dang phat trien]\n"); }
 void thapPhanSangNhiPhan() { printf("\n[Chuc nang 4 dang phat trien]\n"); }
 void demNguyenAmPhuAm() {
@@ -65,4 +65,19 @@ void demNguyenAmPhuAm() {
 
     printf("-> So luong nguyen am: %d\n", demNA);
     printf("-> So luong phu am: %d\n", demPA);
+}void kiemTraDangNhap() {
+    char userSys[] = "admin";
+    char passSys[] = "123456";
+    char user[50], pass[50];
+
+    printf("Username: ");
+    scanf("%s", user);
+    printf("Password: ");
+    scanf("%s", pass);
+
+    if (strcmp(user, userSys) == 0 && strcmp(pass, passSys) == 0) {
+        printf("-> Dang nhap thanh cong!\n");
+    } else {
+        printf("-> Username hoac Password khong chinh xac!\n");
+    }
 }
