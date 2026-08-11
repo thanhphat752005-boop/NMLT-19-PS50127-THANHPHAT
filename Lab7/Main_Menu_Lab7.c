@@ -42,8 +42,27 @@ void xoaBoNhoDem() {
     int c;
     while ((c = getchar()) != '\n' && c != EOF);
 }
-
-void demNguyenAmPhuAm() { printf("\n[Chuc nang 1 dang phat trien]\n"); }
 void kiemTraDangNhap() { printf("\n[Chuc nang 2 dang phat trien]\n"); }
 void sapXepChuoi() { printf("\n[Chuc nang 3 dang phat trien]\n"); }
 void thapPhanSangNhiPhan() { printf("\n[Chuc nang 4 dang phat trien]\n"); }
+void demNguyenAmPhuAm() {
+    char s[256];
+    int demNA = 0, demPA = 0;
+
+    printf("Nhap vao mot chuoi bat ky: ");
+    fgets(s, sizeof(s), stdin);
+
+    for (int i = 0; s[i] != '\0'; i++) {
+        char c = tolower(s[i]);
+        if (isalpha(c)) {
+            if (c == 'a' || c == 'e' || c == 'i' || c == 'o' || c == 'u') {
+                demNA++;
+            } else {
+                demPA++;
+            }
+        }
+    }
+
+    printf("-> So luong nguyen am: %d\n", demNA);
+    printf("-> So luong phu am: %d\n", demPA);
+}
