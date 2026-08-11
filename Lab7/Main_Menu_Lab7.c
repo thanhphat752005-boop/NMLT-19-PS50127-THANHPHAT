@@ -42,8 +42,32 @@ void xoaBoNhoDem() {
     int c;
     while ((c = getchar()) != '\n' && c != EOF);
 }
+void sapXepChuoi() {
+    char s[5][50];
+    char temp[50];
 
-void sapXepChuoi() { printf("\n[Chuc nang 3 dang phat trien]\n"); }
+    printf("Nhap vao 5 chuoi bat ky:\n");
+    for (int i = 0; i < 5; i++) {
+        printf("Chuoi thu %d: ", i + 1);
+        fgets(s[i], sizeof(s[i]), stdin);
+        s[i][strcspn(s[i], "\n")] = '\0';
+    }
+
+    for (int i = 0; i < 4; i++) {
+        for (int j = i + 1; j < 5; j++) {
+            if (strcmp(s[i], s[j]) > 0) {
+                strcpy(temp, s[i]);
+                strcpy(s[i], s[j]);
+                strcpy(s[j], temp);
+            }
+        }
+    }
+
+    printf("\n-> Danh sach chuoi sau khi sap xep Alphabet:\n");
+    for (int i = 0; i < 5; i++) {
+        printf("%d. %s\n", i + 1, s[i]);
+    }
+}
 void thapPhanSangNhiPhan() { printf("\n[Chuc nang 4 dang phat trien]\n"); }
 void demNguyenAmPhuAm() {
     char s[256];
