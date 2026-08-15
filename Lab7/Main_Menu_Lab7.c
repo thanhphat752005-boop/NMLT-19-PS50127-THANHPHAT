@@ -68,7 +68,37 @@ void sapXepChuoi() {
         printf("%d. %s\n", i + 1, s[i]);
     }
 }
-void thapPhanSangNhiPhan() { printf("\n[Chuc nang 4 dang phat trien]\n"); }
+void thapPhanSangNhiPhan() {
+    int n, tempN;
+    char nhiPhan[50];
+    int i = 0;
+
+    printf("Nhap mot so nguyen duong thap phan: ");
+    scanf("%d", &n);
+
+    if (n == 0) {
+        printf("-> Ket qua Nhi phan: 0\n");
+        return;
+    }
+    if (n < 0) {
+        printf("-> Vui long nhap so nguyen DUONG!\n");
+        return;
+    }
+
+    tempN = n;
+    while (tempN > 0) {
+        nhiPhan[i] = (tempN % 2) + '0';
+        tempN /= 2;
+        i++;
+    }
+    nhiPhan[i] = '\0';
+
+    printf("-> Ket qua Nhi phan cua %d la: ", n);
+    for (int j = i - 1; j >= 0; j--) {
+        printf("%c", nhiPhan[j]);
+    }
+    printf("\n");
+}
 void demNguyenAmPhuAm() {
     char s[256];
     int demNA = 0, demPA = 0;
